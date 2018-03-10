@@ -2,11 +2,14 @@ package com.andrea.canteen.Domain;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SaleProduct {
 
     @Id
@@ -33,6 +36,7 @@ public class SaleProduct {
     public void setSale(Sale sale) {
         this.sale = sale;
     }
+
 
     public Product getProduct() {
         return product;

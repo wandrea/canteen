@@ -22,6 +22,10 @@ public class SaleProductService {
     }
 
 
+    public Iterable<SaleProduct> findAllSaleProduct () {
+        return saleProductRepository.findAll();
+    }
+
 
     public SaleProduct updateSaleProductById (int id, SaleProduct newSP){
 

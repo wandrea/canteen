@@ -1,8 +1,11 @@
 package com.andrea.canteen.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
 
 
@@ -11,7 +14,7 @@ public class Product {
     @GeneratedValue(strategy=GenerationType.AUTO, generator="product_id_seq")
 
     private Integer id;
-    private String producName;
+    private String productName;
     private Integer productPrice;
 
     public Integer getId() {
@@ -22,12 +25,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getProducName() {
-        return producName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProducName(String producName) {
-        this.producName = producName;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Integer getProductPrice() {

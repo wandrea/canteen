@@ -1,17 +1,20 @@
 package com.andrea.canteen.Domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
 
     @Id
-    @SequenceGenerator(name="employee_id_seq", sequenceName="employee_id_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="employee_id_seq")
+    @SequenceGenerator(name = "employee_id_seq", sequenceName = "employee_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "employee_id_seq")
     private Integer id;
-    private String name;
+    private String employeeName;
 
     public Integer getId() {
         return id;
@@ -21,11 +24,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 }

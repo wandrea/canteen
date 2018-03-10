@@ -1,11 +1,14 @@
 package com.andrea.canteen.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Sale {
 
     @Id
@@ -20,7 +23,16 @@ public class Sale {
     private Employee employee;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "sale")
+    @JsonIgnoreProperties("sale")
     private Set<SaleProduct> saleProducts= new HashSet<>();
+
+    public Set<SaleProduct> getSaleProducts() {
+        return saleProducts;
+    }
+
+    public void setSaleProducts(Set<SaleProduct> saleProducts) {
+        this.saleProducts = saleProducts;
+    }
 
     public void addSaleProduct (SaleProduct saleProduct){
         this.saleProducts.add(saleProduct);
