@@ -24,20 +24,15 @@ public class EmployeeReportRestController {
     }
 
 
-    @RequestMapping(value ="/canteen/employeereporttofile", method = RequestMethod.POST, produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8")
+    @RequestMapping(value ="/canteen/employeereporttofile", method = RequestMethod.POST, produces = "application/octet-stream;charset=UTF-8")
     @CrossOrigin(origins = "http://localhost")
     public void employeeReportToFile(HttpServletResponse response){
         Workbook wb = employeeReportService.saveEmployeeReport();
         try {
-            response.addHeader("Accept-Ranges", "bytes");
-           // response.addHeader("Content-Length", String.valueOf(fileSize));
-            response.addHeader("Cache-Control", "max-age=0");
-            response.setDateHeader("Expires", 0);
-            response.addHeader("Keep-Alive", "timeout=15, max=94");
-            response.addHeader("Connection", "Keep-Alive");
-            response.addHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+
             response.addHeader("Content-Disposition", "attachment; filename=\"Dolgozók_riport.xlsx\"");
             wb.write(response.getOutputStream());
+            wb.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

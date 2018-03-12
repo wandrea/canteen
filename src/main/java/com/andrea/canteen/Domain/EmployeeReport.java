@@ -10,6 +10,7 @@ public class EmployeeReport {
 
 
     private String employeeName;
+    private Integer employeeId;
     private BigInteger sumPrice;
 
     public String getEmployeeName() {
@@ -26,5 +27,13 @@ public class EmployeeReport {
 
     public void setSumPrice(BigInteger sumPrice) {
         this.sumPrice = sumPrice;
+    }
+
+    public Integer getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 }

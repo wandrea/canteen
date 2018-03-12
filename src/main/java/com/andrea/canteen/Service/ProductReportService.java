@@ -46,7 +46,7 @@ public class ProductReportService {
         Workbook wb = new XSSFWorkbook();
         Sheet sheet = wb.createSheet("Termékek Riport");
         int rowNum = 0;
-        Row r = sheet.createRow(rowNum);
+        Row r = sheet.createRow(rowNum++);
         Cell employeeNameCell = r.createCell(0);
         employeeNameCell.setCellValue("Termékek neve");
 
@@ -54,7 +54,7 @@ public class ProductReportService {
         sumPriceCell.setCellValue("Fogyás mennyisége (db)");
 
         for(ProductReport pr : reportList){
-            Row row = sheet.createRow(rowNum);
+            Row row = sheet.createRow(rowNum++);
             Cell nameCell = row.createCell(0);
             nameCell.setCellValue(pr.getProductName());
             Cell quantityCell = row.createCell(1);

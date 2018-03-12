@@ -36,6 +36,7 @@ public class EmployeeReportService {
             EmployeeReport employeeReport= new EmployeeReport();
             employeeReport.setSumPrice((BigInteger) ob[0]);
             employeeReport.setEmployeeName((String) ob[1]);
+            employeeReport.setEmployeeId((Integer) ob[2]);
 
             employeeReportOutputList.add(employeeReport);
     }
@@ -48,7 +49,7 @@ public class EmployeeReportService {
         Workbook wb = new XSSFWorkbook();
         Sheet sheet = wb.createSheet("Dolgozók Riport");
         int rowNum = 0;
-        Row r = sheet.createRow(rowNum);
+        Row r = sheet.createRow(rowNum++);
         Cell employeeNameCell = r.createCell(0);
         employeeNameCell.setCellValue("Dolgozók neve");
 
@@ -56,7 +57,7 @@ public class EmployeeReportService {
        sumPriceCell.setCellValue("Fogyasztás (Ft)");
 
         for(EmployeeReport er : reportList){
-            Row row = sheet.createRow(rowNum);
+            Row row = sheet.createRow(rowNum++);
            Cell nameCell = row.createCell(0);
             nameCell.setCellValue(er.getEmployeeName());
             Cell priceCell = row.createCell(1);
