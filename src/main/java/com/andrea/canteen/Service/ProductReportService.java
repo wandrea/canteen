@@ -3,6 +3,11 @@ package com.andrea.canteen.Service;
 
 import com.andrea.canteen.Domain.ProductReport;
 import com.andrea.canteen.Repository.ProductReportRepository;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +38,27 @@ public class ProductReportService {
             productReportOutputList.add(productReport);
         }
         return productReportOutputList;
+    }
+
+    public Workbook saveProductReport(){
+        List<ProductReport> reportList = productReport();
+
+        Workbook wb = new XSSFWorkbook();
+        Sheet sheet = wb.createSheet("Termékek Riport");
+        int rowNum = 0;
+        Row r = sheet.createRow(rowNum);
+        Cell employeeNameCell = r.createCell(0);
+        employeeNameCell.setCellValue("Termékek neve");
+
+        Cell sumPriceCell = r.createCell(1);
+        sumPriceCell.setCellValue("Fogyás mennyisége (db)");
+
+        for(ProductReport pr : reportList){
+            Row row = sheet.createRow(rowNum);
+            Cell nameCell = row.createCell(0);
+            nameCell.setCellValue(pr.getProductName());
+            Cell quantityCell = row.createCell(1);
+            quantityCell.setCellValue(pr.getSumQuantity().intValue());
+        } return wb;
     }
 }

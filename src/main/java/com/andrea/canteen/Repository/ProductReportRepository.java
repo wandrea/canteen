@@ -17,6 +17,6 @@ public interface ProductReportRepository extends CrudRepository<Product, Integer
             "inner join sale on sale_product.sale_id=sale.id\n" +
             "where sale.sale_time>=date_trunc('month', clock_timestamp()) and sale.sale_time<date_trunc('month', clock_timestamp())+interval '1 month'\n" +
             "group by(product.product_name)\n" +
-            "order by sum_quantity ASC", nativeQuery = true)
+            "order by sum_quantity DESC", nativeQuery = true)
     public List<Object[]> productReport();
 }
