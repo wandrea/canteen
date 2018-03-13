@@ -1,0 +1,88 @@
+<!doctype html>
+<html ng-app='canteenApp' Lang="hu">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Canteen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="home/home-controller.js"></script>
+    <script src="sale/sale-controller.js"></script>
+    <script src="sale/sale-service.js"></script>
+    <script src="employee/employeerep-controller.js"></script>
+    <script src="employee/employeerep-service.js"></script>
+    <script src="product/productrep-controller.js"></script>
+    <script src="product/productrep-service.js"></script>
+
+
+
+
+</head>
+
+<body class="container-fluid" id="bodybackground">
+    <div class="row " id="header">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+            <span class="title">Üzemi menza</span>
+            <img id="logo" src="http://www.eatlogos.com/food_and_drinks/png/vector_chief_food_logo.png">
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id="content">
+            <ng-view>
+            </ng-view>
+        </div>
+
+        <div class="col-md-2 text-left" id="menu">
+            <ul class="nav nav-stacked menuList">
+                <li>
+                    <a href="#!">
+                     <i class="glyphicon glyphicon-home"></i>
+                    <span>Nyitó oldal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#!/sale">
+                        <i class="glyphicon glyphicon-scale"></i>
+                        <span> Értékesítés</span>  
+                       </a>
+                </li>
+                <li>
+                    <a href="#!/employee">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>  Dolgozói fogyasztás</span>
+                        
+                       </a>
+                </li>
+                <li>
+                    <a href="#!/product">
+                        <i class="glyphicon glyphicon-cutlery"></i>
+                        <span>  Termékek fogyása</span>
+                        </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

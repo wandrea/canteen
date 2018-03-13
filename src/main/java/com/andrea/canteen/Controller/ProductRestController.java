@@ -19,10 +19,5 @@ public class ProductRestController {
     }
 
 
-    @RequestMapping(value = "/canteen/product/{id}", method =RequestMethod.GET )
-    @CrossOrigin(origins = "http://localhost")
-    public Product findById(@PathVariable("id") int id){
 
-        return  productService.findProductById(id);
-    }
 }

@@ -21,10 +21,5 @@ public class EmployeeRestController {
     }
 
 
-    @RequestMapping(value = "/canteen/employee/{id}", method =RequestMethod.GET )
-    @CrossOrigin(origins = "http://localhost")
-    public Employee findById(@PathVariable("id") int id){
 
-        return  employeeService.findEmployeeById(id);
-    }
 }

@@ -13,10 +13,6 @@ public class ProductService {
     public Iterable<Product> findAllProduct () {
         return productRepository.findAll();
     }
-    public Product findProductById(int id) {
-        return productRepository.findOne(id);
-
-    }
 
 
 

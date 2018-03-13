@@ -18,10 +18,7 @@ public class EmployeeService {
     public Iterable<Employee> findAllEmployee () {
         return employeeRepository.findAll();
     }
-    public Employee findEmployeeById(int id) {
-        return employeeRepository.findOne(id);
 
-    }
 
 
 }

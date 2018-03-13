@@ -22,9 +22,5 @@ public class SaleRestController {
         return saleService.save(sale);
     }
 
-    @RequestMapping(value = "/canteen/sale/{id}", method = RequestMethod.DELETE)
-    @CrossOrigin(origins = "http://localhost")
-    public void deleteSaleById (@PathVariable("id") int id){
-        saleService.deleteSaleById(id);
-    }
+
 }

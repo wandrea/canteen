@@ -17,9 +17,6 @@ public class SaleService {
         return saleRepository.save(sale);
     }
 
-    public void deleteSaleById(int id) {
-        saleRepository.delete(id);
 
-    }
 
 }
